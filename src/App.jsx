@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import testImg from './assets/tcl_standin_pic.jpeg'
-import testLogo from './assets/image.png'
+import testLogo from './assets/logo.png'
+
+
 import './App.css'
 
 const scrollToSection = (id) => {
@@ -17,13 +19,13 @@ function App() {
       <div className="navbar bg-base-100 shadow-sm">
         <img src={testLogo} alt="Logo" className="h-10" />
         <div className="flex-1">
-          <a className="btn btn-ghost text-5xl font-extrabold">FlipMaps</a>
+          <a className="btn btn-ghost text-5xl font-extrabold mx-0 px-0">FlipMaps</a>
         </div>
         <div className="flex-none">
           <input type="checkbox" value="synthwave" className="toggle theme-controller" />
         </div>
       </div>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen bgimg">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold">Old phones can learn new tricks!</h1>
@@ -35,41 +37,20 @@ function App() {
           </div>
         </div>
       </div>
-      <div id="start-here" className="carousel carousel-center bg-neutral rounded-box  space-x-4 mt-30">
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-            className="rounded-box" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-            className="rounded-box" />
+      <div className="hero bg-base-200 min-h-screen">
+        <div id="start-here" className="hero-content flex-col lg:flex-row-reverse">
+          <div className="max-w-md flex justify-center items-center flex-col gap-8">
+            <button className="btn btn-secondary btn-wide" onClick={() => scrollToSection('start-here')}>Download Here</button>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4_twwdp9nPs?si=88L2sgcGRXFIld7d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div>
+            <h1 className="text-5xl font-bold">Box Office News!</h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+              quasi. In deleniti eaque aut repudiandae et a id nisi.
+            </p>
+            <button className="btn btn-primary">Get Started</button>
+          </div>
         </div>
       </div>
       <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4">
