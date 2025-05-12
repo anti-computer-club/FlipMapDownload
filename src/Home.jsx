@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import testImg from './assets/tcl_standin_pic.jpeg';
 import { Link } from 'react-router-dom';
 import testLogo from './assets/logo.png';
 import './App.css';
@@ -85,23 +84,9 @@ function App() {
         </div>
       </section>
 
-      {/* Video + Text Section */}
+      {/* About Section */}
       <section id="start-here" className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse gap-12">
-          <div className="max-w-md w-full flex flex-col items-center gap-8">
-            <div className="w-full aspect-video">
-              <iframe
-                className="w-full h-full rounded"
-                src="https://www.youtube.com/embed/4_twwdp9nPs?si=88L2sgcGRXFIld7d"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                referrerPolicy="strict-origin-when-cross-origin"
-              ></iframe>
-            </div>
-            <button className="btn btn-secondary btn-wide">Download Here</button>
-          </div>
           <div className="max-w-lg">
             <h1 className="text-5xl font-bold">About The App!</h1>
             <p className="py-6">

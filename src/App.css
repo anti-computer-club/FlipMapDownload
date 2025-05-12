@@ -63,7 +63,7 @@
 /* Global body styling */
 body {
   background-color: white;
-  color: black;
+  color: #3f48cc;
   font-family: Arial, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -71,7 +71,7 @@ body {
 /* Dark mode body styling */
 body.dark {
   background-color: #121212;
-  color: white;
+  color: #3f48cc;
 }
 
 /* Navbar */
