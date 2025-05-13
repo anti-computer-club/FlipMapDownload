@@ -10,6 +10,10 @@ const scrollToSection = (id) => {
   }
 };
 
+const openNewTab = () => {
+  window.open("https://github.com/anti-computer-club", "_blank");
+}
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -38,14 +42,20 @@ function App() {
     <>
       {/* Navbar */}
       <div className="navbar bg-base-100 shadow-sm px-4">
+      <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4">
           <img src={testLogo} alt="Logo" className="h-10" />
           <span className="text-3xl font-extrabold">FlipMaps</span>
+        </div>
+        
+        <div className="navbar-container flex items-center">
           <Link to="/" className="btn btn-ghost">Home</Link>
           <Link to="/forum" className="btn btn-ghost">Forum</Link>
           <Link to="/demo" className="btn btn-ghost">Demo</Link>
           <Link to="/downloads" className="btn btn-ghost">Downloads</Link>
         </div>
+      </div>
+
         <div className="ml-auto">
           <label className="flex items-center gap-2 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -70,15 +80,21 @@ function App() {
 
       {/* Hero Section */}
       <section className="hero min-h-screen bg-base-200 bgimg">
+     
         <div className="hero-content text-center">
+        <img src={testLogo} alt="Logo" className="h-100" />
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Old phones can learn new tricks!</h1>
+            <h1 className="text-5xl font-bold">Flip Maps App</h1>
+            <h2 className="text-3xl font-bold gap-4">Old phones can learn new tricks!</h2>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
               quasi. In deleniti eaque aut repudiandae et a id nisi.
             </p>
             <button className="btn btn-primary" onClick={() => scrollToSection('start-here')}>
               Get Started
+            </button>
+            <button className="btn btn-primary" onClick={() => openNewTab()}>
+              Open Source
             </button>
           </div>
         </div>
