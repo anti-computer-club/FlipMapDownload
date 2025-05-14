@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 

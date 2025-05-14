@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import testLogo from '../assets/logo.png';
+import { SignInButton, UserButton } from '@clerk/clerk-react';
 
 function Header({ isDarkMode, toggleTheme }) {
     return (
@@ -30,6 +31,8 @@ function Header({ isDarkMode, toggleTheme }) {
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
+            <SignInButton />
+            <UserButton />
           </label>
         </div>
       </div> 
