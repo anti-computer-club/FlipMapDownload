@@ -3,6 +3,7 @@ import './App.css';
 import { SignedIn, SignedOut } from '@clerk/clerk-react';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
+import ForumPost from './components/forumPost.jsx';
 
 function Forum() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,22 +31,45 @@ function Forum() {
 
   return (
     <>
-      {/* Navbar */}
       <Header />
+      <div className="min-h-screen bg-base-200 p-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Main Post Feed */}
+          <div className="md:col-span-2 space-y-4">
+            <h1 className="text-3xl font-bold mb-4">Posts</h1>
+            <ForumPost />
+          
+            {/* Repeat more post cards */}
+          </div>
 
-      {/* About Section */}
-      <section id="start-here" className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-12">
-          <div className="max-w-lg">
-            <h1 className="text-5xl font-bold">The Forum!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-              quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+          {/* Right Sidebar */}
+          <div className="space-y-6">
+            {/* Photo Gallery */}
+            <div className="card bg-base-100 shadow-md">
+              <div className="card-body">
+                <h2 className="card-title">Recent Photos</h2>
+                <div className="grid grid-cols-3 gap-2 mt-2">
+                  <img src="/assets/tcl_standin_pic.jpeg" className="rounded" />
+                  <img src="/assets/tcl_standin_pic.jpeg" className="rounded" />
+                  <img src="/assets/tcl_standin_pic.jpeg" className="rounded" />
+                </div>
+              </div>
+            </div>
+
+            {/* Top Contributors */}
+            <div className="card bg-base-100 shadow-md">
+              <div className="card-body">
+                <h2 className="card-title">Top Contributors</h2>
+                <ul className="menu bg-base-100 rounded-box mt-2">
+                  <li><a>user1<span className="badge badge-accent">something</span></a></li>
+                  <li><a>user2<span className="badge badge-accent">something</span></a></li>
+                  <li><a>user3<span className="badge badge-accent">something</span></a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </>

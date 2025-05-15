@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import testLogo from '../assets/logo.png';
-import { SignInButton, UserButton } from '@clerk/clerk-react';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 function Header({ isDarkMode, toggleTheme }) {
     return (
@@ -13,7 +13,7 @@ function Header({ isDarkMode, toggleTheme }) {
           <Link to="/demo" className="btn btn-ghost">Demo</Link>
           <Link to="/downloads" className="btn btn-ghost">Downloads</Link>
         </div>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-4">
           <label className="flex items-center gap-2 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +31,9 @@ function Header({ isDarkMode, toggleTheme }) {
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
-            <SignInButton />
+            <SignedOut>
+                <SignInButton />
+            </SignedOut>
             <UserButton />
           </label>
         </div>

@@ -86,7 +86,11 @@ body.dark {
 
 /* Navbar */
 .navbar {
+<<<<<<< HEAD
   background-color: #798196;
+=======
+  background-color: #9c9fa2;
+>>>>>>> e96dd6015091feb92aa79a72336aed32e0c6982a
   transition: background-color 0.3s ease;
 }
 body.dark .navbar {
@@ -97,7 +101,7 @@ body.dark .navbar {
 .hero {
   padding: 100px 0;
   text-align: center;
-  background-color: #f0f4f8;
+  background-color: #ffffff;
   transition: background-color 0.3s ease;
 }
 body.dark .hero {
@@ -108,7 +112,7 @@ body.dark .hero {
 /* Buttons */
 button {
   background-color: #4CAF50;
-  color: white;
+  color: rgb(243, 248, 247);
   padding: 12px 30px;
   border-radius: 8px;
   font-size: 1.2rem;
