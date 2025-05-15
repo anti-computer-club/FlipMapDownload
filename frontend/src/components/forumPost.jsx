@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons';
+import CommentSection from './commentSection.jsx';
 
 function ForumPost({ post }) {
   return (
@@ -19,10 +20,15 @@ function ForumPost({ post }) {
                     <FontAwesomeIcon icon={faHeart} />
                 </button>
             </div>
+            
+            {/* Comment Section */}
+            <CommentSection postId={post.id} />
+
         </div>
     </div>
   )
 }
 
 export default ForumPost;
+
 

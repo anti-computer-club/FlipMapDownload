@@ -5,7 +5,7 @@ import { ClerkProvider } from '@clerk/clerk-react';
 import './App.css';
 
 import Home from './Home.jsx';
-import Forum from './Forum.jsx';
+import Forum from './Forum.tsx';
 import Demo from './Demo.jsx';
 import Downloads from './Downloads.jsx';
 
