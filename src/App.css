@@ -86,13 +86,12 @@ body.dark {
 
 /* Navbar */
 .navbar {
-<<<<<<< HEAD
-  background-color: #798196;
-=======
+
   background-color: #9c9fa2;
->>>>>>> e96dd6015091feb92aa79a72336aed32e0c6982a
+
   transition: background-color 0.3s ease;
 }
+
 body.dark .navbar {
   background-color: #333;
 }
