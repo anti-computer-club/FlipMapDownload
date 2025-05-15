@@ -53,6 +53,7 @@ function App() {
           <Link to="/forum" className="btn btn-ghost">Forum</Link>
           <Link to="/demo" className="btn btn-ghost">Demo</Link>
           <Link to="/downloads" className="btn btn-ghost">Downloads</Link>
+          <Link to="/about" className="btn btn-ghost">About</Link>
         </div>
       </div>
 
