@@ -7,13 +7,6 @@ function Footer(){
             </svg>
             <p>Anti Computer Club © 2024–{new Date().getFullYear()} — All rights reserved</p>
             </aside>
-            <nav className="ml-auto flex gap-4">
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M24 4.557...z" />
-                </svg>
-            </a>
-            </nav>
         </footer>
     )
 

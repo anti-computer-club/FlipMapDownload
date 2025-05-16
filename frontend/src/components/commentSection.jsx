@@ -6,11 +6,20 @@ function CommentSection({ postId }) {
   const [newComment, setNewComment] = useState('');
   const { getToken, userId } = useAuth();
 
+  // Fetch comments on mount & whenever postId changes
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await fetch(`http://localhost:4000/api/posts/${postId}/comments`);
-      const data = await res.json();
-      setComments(data);
+      try {
+        const res = await fetch(`http://localhost:4000/api/posts/${postId}/comments`);
+        if (!res.ok) {
+          console.error('Failed to fetch comments:', res.status, res.statusText);
+          return;
+        }
+        const data = await res.json();
+        setComments(data);
+      } catch (err) {
+        console.error('Error parsing comments JSON:', err);
+      }
     };
 
     fetchComments();
@@ -18,18 +27,39 @@ function CommentSection({ postId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await getToken();
-    await fetch(`http://localhost:4000/api/posts/${postId}/comments`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ content: newComment }),
-    });
-    setNewComment('');
-    const res = await fetch(`http://localhost:4000/api/posts/${postId}/comments`);
-    setComments(await res.json());
+    try {
+      const token = await getToken();
+      const postRes = await fetch(`http://localhost:4000/api/posts/${postId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: newComment }),
+      });
+
+      if (!postRes.ok) {
+        const errData = await postRes.json().catch(() => null);
+        console.error('Failed to create comment:', postRes.status, errData);
+        alert(`Error: ${errData?.message || postRes.statusText}`);
+        return;
+      }
+
+      setNewComment('');
+
+      // Re-fetch comments
+      const res = await fetch(`http://localhost:4000/api/posts/${postId}/comments`);
+      if (!res.ok) {
+        console.error('Failed to fetch comments after posting:', res.status, res.statusText);
+        return;
+      }
+      const data = await res.json();
+      setComments(data);
+
+    } catch (err) {
+      console.error('Unexpected error in handleSubmit:', err);
+      alert('Unexpected error. Check console.');
+    }
   };
 
   return (
@@ -43,7 +73,9 @@ function CommentSection({ postId }) {
           {comments.map((comment) => (
             <li key={comment.id} className="border p-2 rounded-md bg-base-100">
               <p>{comment.content}</p>
-              <span className="text-xs text-gray-500">by {comment.authorId}</span>
+              <span className="text-xs text-gray-500">
+                by {comment.authorName /* now using authorName */}
+              </span>
             </li>
           ))}
         </ul>

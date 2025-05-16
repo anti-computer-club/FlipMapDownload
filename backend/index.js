@@ -3,66 +3,125 @@ const express = require('express');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
 const { z } = require('zod');
-const { requireAuth } = require('@clerk/express');
-
+const { requireAuth, clerkClient } = require('@clerk/express');
 const app = express();
 const prisma = new PrismaClient();
 
+const prodOrigin     = process.env.FRONTEND_URL; // use for production build
+const FRONTEND = process.env.FRONTEND_URL || 'http://localhost:5173';
+
+// middleware
 app.use(cors({
-    origin: 'http://localhost:5174',
-    credentials: true,
-  }));
+  origin: FRONTEND,
+  methods: ['GET','POST','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization'],
+  credentials: true,        // only if you need cookies/auth headers
+}));
 app.use(express.json());
 
-
-
+// Zod schema for post creation
 const postSchema = z.object({
   title: z.string().min(1),
   content: z.string(),
-  authorId: z.string(),
 });
 
+const commentSchema = z.object({
+  content: z.string().min(1),
+});
+
+// Helper to batch‐fetch Clerk usernames
+async function enrichWithUsernames(records, idField = 'authorId') {
+  const ids = [...new Set(records.map(r => r[idField]))];
+  const users = await clerkClient.users.getUserList({ userId: ids });
+  const userMap = new Map(users.map(u => [
+    u.id,
+    u.username || u.firstName || u.emailAddresses?.[0]?.emailAddress || 'Unknown'
+  ]));
+  return records.map(r => ({
+    ...r,
+    authorName: userMap.get(r[idField]) || 'Unknown',
+  }));
+}
+
+// GET all posts with authorName
 app.get('/api/posts', async (req, res) => {
-  const posts = await prisma.post.findMany({ orderBy: { createdAt: 'desc' } });
-  res.json(posts);
+  try {
+    // 1) Fetch raw posts
+    const posts = await prisma.post.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+
+    // TEMPORARY: skip enrichment to check DB
+    // const enriched = await enrichWithUsernames(posts);
+    // return res.json(enriched);
+
+    // Return raw posts for now:
+    return res.json(posts);
+
+  } catch (err) {
+    console.error('[/api/posts] error:', err);
+    return res.status(500).json({ error: 'Failed to fetch posts' });
+  }
 });
 
-app.get('/:id/comments', async (req, res) => {
-    const postId = req.params.id;
+// POST a new post (authenticated)
+app.post('/api/posts', requireAuth(), async (req, res) => {
+  const parsed = postSchema.safeParse(req.body);
+  if (!parsed.success) return res.status(400).json(parsed.error);
+
+  try {
+    const post = await prisma.post.create({
+      data: {
+        ...parsed.data,
+        authorId: req.auth.userId,
+      },
+    });
+    res.json(post);
+  } catch (err) {
+    console.error('Error creating post:', err);
+    res.status(500).json({ error: 'Failed to create post' });
+  }
+});
+
+// GET comments for a post, with authorName
+app.get('/api/posts/:id/comments', async (req, res) => {
+  const postId = req.params.id;
+  try {
     const comments = await prisma.comment.findMany({
       where: { postId },
       orderBy: { createdAt: 'asc' },
     });
-    res.json(comments);
+    const enriched = await enrichWithUsernames(comments);
+    res.json(enriched);
+  } catch (err) {
+    console.error('Error fetching comments:', err);
+    res.status(500).json({ error: 'Failed to fetch comments' });
+  }
+});
+
+// POST a new comment (authenticated)
+app.post('/api/posts/:id/comments', requireAuth(), async (req, res) => {
+  // Validate only content
+  const parsed = commentSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json(parsed.error);
+  }
+
+  const comment = await prisma.comment.create({
+    data: {
+      content: parsed.data.content,  // from client
+      postId:   req.params.id,       // from URL
+      authorId: req.auth.userId,     // injected from Clerk
+    },
   });
 
+  // (Optionally enrich and return the comment with authorName)
+  const [enriched] = await enrichWithUsernames([comment]);
+  res.status(201).json(enriched);
+});
 
-app.post('/:id/comments', requireAuth(), async (req, res) => {
-    const { content } = req.body;
-    const postId = req.params.id;
-    const authorId = req.auth.userId;
-  
-    if (!content) return res.status(400).json({ error: 'Missing content' });
-  
-    const comment = await prisma.comment.create({
-      data: { content, postId, authorId },
-    });
-  
-    res.status(201).json(comment);
-  });
 
+
+// Start server
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
-
-// Middleware to check authentication 
-app.post('/api/posts', requireAuth, async (req, res) => {
-    const parsed = postSchema.safeParse({
-      ...req.body,
-      authorId: req.auth.userId,
-    });
-  
-    if (!parsed.success) return res.status(400).json(parsed.error);
-  
-    const post = await prisma.post.create({ data: parsed.data });
-    res.json(post);
-  });
