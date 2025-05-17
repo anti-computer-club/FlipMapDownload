@@ -2,20 +2,24 @@
 @import 'pixel-retroui/dist/index.css';
 @import 'pixel-retroui/dist/fonts.css';
 
-/* DaisyUI plugin with custom themes */
+/* DaisyUI with themes */
 @plugin "daisyui" {
   themes: retro --default, coffee --prefersdark;
 }
 
 /* Root layout */
 #root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply w-full h-full flex flex-col items-center m-0 p-0;
+}
+
+/* Avoid conflict with DaisyUI `.card` */
+.custom-card {
+  @apply p-8;
+}
+
+/* Avoid conflict with DaisyUI `.navbar` */
+.custom-navbar {
+  @apply float-right overflow-hidden;
 }
 
 .logo {
@@ -24,39 +28,9 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 h1 {
-  padding-bottom: 40px;
-}
-
-.navbar-container {
-  float: right;
-  overflow: hidden; 
-  
-}
-
-.card {
-  padding: 2em;
+  @apply pb-10;
 }
 
 .read-the-docs {
@@ -68,80 +42,31 @@ h1 {
 }
 
 body {
-  background-color: white;
-  color: black;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark {
-  background-color: #121212;
-  color: white;
-}
-
-.navbar {
-  background-color: #798196;
-  transition: background-color 0.3s ease;
-}
-body.dark .navbar {
-  background-color: #333;
+  @apply bg-base-100 text-base-content transition-colors;
 }
 
 .hero {
-  padding: 100px 0;
-  text-align: center;
-  background-color: #f0f4f8;
-  transition: background-color 0.3s ease;
+  @apply py-24 text-center bg-base-200 transition-colors;
 }
-body.dark .hero {
-  background-color: #1a1a1a;
-  color: white;
-}
-
 
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  margin: 0px 20px;
+  @apply bg-success text-white px-6 py-3 rounded-lg text-xl font-semibold transition-colors mx-5;
 }
-body.dark button {
-  background-color: #2c3e50;
-}
-
 
 footer {
-  background-color: #798196;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark footer {
-  background-color: #333;
+  @apply bg-neutral text-neutral-content p-5 text-center transition-colors;
 }
 
 footer svg {
-  fill: #ffffff;
+  @apply fill-current text-white;
 }
 
 footer p {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .member-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  @apply flex flex-wrap justify-center gap-8 w-full max-w-screen-xl mx-auto;
 }
 
 .flip-card {
@@ -153,11 +78,7 @@ footer p {
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
+  @apply relative w-full h-full text-center transition-transform duration-500;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 15px;
@@ -168,32 +89,14 @@ footer p {
 }
 
 .flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
+  @apply absolute w-full h-full flex items-center justify-center rounded-xl p-5 box-border;
   backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 .flip-card-front {
   background-color: #ff8f00;
-  opacity: 0.8;
   color: black;
+  opacity: 0.8;
 }
 
 .flip-card-back {
@@ -204,54 +107,33 @@ footer p {
 }
 
 .flip-card-front h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 15px;
+  @apply text-2xl font-bold mt-4;
 }
 
 .hero-content {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply w-full max-w-screen-xl flex flex-col items-center;
 }
 
 .team-image {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 15px;
+  @apply rounded-full w-36 h-36 object-cover mb-4;
 }
 
 @media (max-width: 900px) {
   .flip-card {
-    width: 100%;
-    max-width: 500px;
+    @apply w-full max-w-lg;
   }
 }
 
 .group-photo-container {
-  width: 80%;
-  height: 350px;
-  margin: 0 auto 40px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  @apply w-4/5 h-[350px] mx-auto mb-10 overflow-hidden rounded-lg shadow-lg;
 }
 
 .group-photo {
-  width: 100%;
-  height: 125%;
-  object-fit: cover; 
-  object-position: cover;
-  display: block;
+  @apply w-full h-[125%] object-cover block;
 }
 
 @media (max-width: 768px) {
   .group-photo-container {
-    width: 95%;
-    height: 200px;
+    @apply w-[95%] h-[200px];
   }
 }

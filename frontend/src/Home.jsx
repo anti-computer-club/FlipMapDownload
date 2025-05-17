@@ -56,7 +56,7 @@ function Home() {
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
               quasi. In deleniti eaque aut repudiandae et a id nisi.
             </p>
-            <Button className="m-2" onClick={() => scrollToSection('start-here')}>
+            <Button className="" onClick={() => scrollToSection('start-here')}>
               Get Started
             </Button>
             <Button  onClick={() => openNewTab()}>
