@@ -7,7 +7,7 @@ import './App.css';
 import Home from './Home.jsx';
 import Forum from './Forum.tsx';
 import Demo from './Demo.jsx';
-import Downloads from './Downloads.jsx';
+import About from './About.jsx';
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/demo" element={<Demo />} />
-          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </ClerkProvider>
