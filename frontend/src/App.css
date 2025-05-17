@@ -1,5 +1,6 @@
 @import "tailwindcss";
-
+@import 'pixel-retroui/dist/index.css';
+@import 'pixel-retroui/dist/fonts.css';
 
 /* DaisyUI plugin with custom themes */
 @plugin "daisyui" {

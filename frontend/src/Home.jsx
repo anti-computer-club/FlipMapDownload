@@ -3,6 +3,7 @@ import testLogo from './assets/logo.png';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import './App.css';
+import { Button } from 'pixel-retroui';
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -56,12 +57,12 @@ function Home() {
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
               quasi. In deleniti eaque aut repudiandae et a id nisi.
             </p>
-            <button className="btn btn-primary" onClick={() => scrollToSection('start-here')}>
+            <Button className="m-2" onClick={() => scrollToSection('start-here')}>
               Get Started
-            </button>
-            <button className="btn btn-primary" onClick={() => openNewTab()}>
+            </Button>
+            <Button  onClick={() => openNewTab()}>
               Open Source
-            </button>
+            </Button>
           </div>
         </div>
       </section>
