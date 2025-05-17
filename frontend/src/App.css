@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'pixel-retroui/dist/index.css';
 @import 'pixel-retroui/dist/fonts.css';
 
 /* DaisyUI with themes */
@@ -31,6 +32,8 @@
 h1 {
   @apply pb-10;
 }
+
+
 
 .read-the-docs {
   color: #888;

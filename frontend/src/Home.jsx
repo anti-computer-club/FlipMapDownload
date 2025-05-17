@@ -4,6 +4,7 @@ import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import './App.css';
 import { Button } from 'pixel-retroui';
+import ContactForm from './components/contactForm.jsx';
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -46,7 +47,7 @@ function Home() {
             <p className="mb-5">
             Our project solves the lack of accessible, functional navigation tools for flip phones that run on Android, a rapidly growing niche segment of mobile devices. However, they are often excluded from modern navigation solutions due to hardware limitations, low resolution screens, and lack of optimized software. By creating a lightweight, modular navigation app tailored specifically for these constraints, we provide users of Android flip phones with reliable turn-by-turn directions, map viewing, and route planning. 
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <Button className="btn btn-ghost">Get Started</Button>
           </div>
         </div>
       </div>
@@ -54,7 +55,7 @@ function Home() {
         <div className="hero-content text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-4 text-4xl font-bold">But who's still using a flip phone?</h1>
-            <p className="mb-5">
+            <p className="mb-5 text-gray-900">
             These phones have been gaining popularity among users seeking simplicity, affordability, or a distraction-free way of living. Some are parens who choose basic phones for their children and want them to have access to reliable navigation when away from home. Others are individuals seeking to reduce screen time while still having access to essential smartphone functionality. The user base also includes those who want to be excluded from modern technology and want an alternative to mainstream tech.
             </p>
             <button className="btn btn-primary">Get Started</button>
@@ -68,13 +69,7 @@ function Home() {
     </div>
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <fieldset className="fieldset">
-          <label className="label">Email</label>
-          <input type="email" className="input" placeholder="Email" />
-          <label className="label">How can we help?</label>
-          <textarea className="textarea" placeholder="Message"></textarea>
-          <button className="btn btn-neutral mt-4">Send</button>
-        </fieldset>
+      <ContactForm />
       </div>
     </div>
   </div>
