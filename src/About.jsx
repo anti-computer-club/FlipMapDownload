@@ -4,7 +4,7 @@ import testLogo from './assets/logo.png';
 import PaulImg from './assets/PaulImg.png';
 import AidenImg from './assets/AidenImg.jpeg';
 import CodyImg from './assets/CodyImg.jpg';
-import ReinaImg from './assets/ReinaImg.JPG';
+import ReinaImg from './assets/ReinaImg.jpeg';
 import PhoenixImg from './assets/PhoenixImg.jpg';
 import PreetImg from './assets/PreetImg.png';
 import bowlingPals from './assets/bowlingPals.jpeg';
