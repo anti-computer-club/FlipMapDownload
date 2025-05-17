@@ -42,7 +42,6 @@ function Home() {
 
   return (
     <>
-      {/* Navbar */}
       <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
       {/* Hero Section */}
@@ -80,8 +79,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
       <Footer />
     </>
   );

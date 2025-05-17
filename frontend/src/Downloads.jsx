@@ -54,8 +54,6 @@ function Downloads() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
       <Footer />
     </>
   );

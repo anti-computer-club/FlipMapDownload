@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 
+
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
@@ -38,7 +39,6 @@ function Demo() {
     <>
       {/* Navbar */}
       <Header />
-      
       {/* Demo */}
       <section id="start-here" className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col gap-12">
@@ -62,7 +62,6 @@ function Demo() {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </>
   );
