@@ -1,4 +1,4 @@
-# 📱 Install Our Android App on Android Go
+# Install Our Maps App for Flip Phones
 
 This app is designed specifically for dumbphones. While it can be ran on Android smartphones, usability may be hindered greatly
 
