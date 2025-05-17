@@ -33,6 +33,11 @@ const commentSchema = z.object({
 async function enrichWithUsernames(records, idField = 'authorId') {
   const ids = [...new Set(records.map(r => r[idField]))];
   const users = await clerkClient.users.getUserList({ userId: ids });
+  console.log('Fetched users:', users); //Testing print
+  if (!Array.isArray(users)) {
+    console.error('Expected an array but got:', users);
+    throw new Error('Invalid response from Clerk API');
+  }
   const userMap = new Map(users.map(u => [
     u.id,
     u.username || u.firstName || u.emailAddresses?.[0]?.emailAddress || 'Unknown'
@@ -91,8 +96,8 @@ app.get('/api/posts/:id/comments', async (req, res) => {
       where: { postId },
       orderBy: { createdAt: 'asc' },
     });
-    const enriched = await enrichWithUsernames(comments);
-    res.json(enriched);
+    // const enriched = await enrichWithUsernames(comments);
+    // res.json(enriched);
   } catch (err) {
     console.error('Error fetching comments:', err);
     res.status(500).json({ error: 'Failed to fetch comments' });
@@ -111,13 +116,13 @@ app.post('/api/posts/:id/comments', requireAuth(), async (req, res) => {
     data: {
       content: parsed.data.content,  // from client
       postId:   req.params.id,       // from URL
-      authorId: req.auth.userId,     // injected from Clerk
+      // authorId: req.auth.userId,     // injected from Clerk
     },
   });
 
   // (Optionally enrich and return the comment with authorName)
-  const [enriched] = await enrichWithUsernames([comment]);
-  res.status(201).json(enriched);
+  // const [enriched] = await enrichWithUsernames([comment]);
+  // res.status(201).json(enriched);
 });
 
 
