@@ -1,9 +1,13 @@
 @import "tailwindcss";
+@import 'pixel-retroui/dist/index.css';
+@import 'pixel-retroui/dist/fonts.css';
 
+/* DaisyUI plugin with custom themes */
 @plugin "daisyui" {
-  themes: nord --default, dark --prefersdark;
+  themes: retro --default, coffee --prefersdark;
 }
 
+/* Root layout */
 #root {
   margin: 0;
   padding: 0;
