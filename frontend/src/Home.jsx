@@ -17,68 +17,68 @@ const openNewTab = () => {
 }
 
 function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Load theme from localStorage or system preference
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    } else {
-      setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-  }, []);
-
-  // Apply theme class to body
-  useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
-
-  const toggleTheme = (e) => {
-    const newTheme = e.target.checked ? 'dark' : 'light';
-    setIsDarkMode(e.target.checked);
-    localStorage.setItem('theme', newTheme);
-  };
-
   return (
     <>
-      <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      <Header/>
 
       {/* Hero Section */}
+      
       <section className="hero min-h-screen bg-base-200 bgimg">
      
         <div className="hero-content text-center">
         <img src={testLogo} alt="Logo" className="h-100" />
           <div className="max-w-md">
             <h1 className="text-5xl font-bold">Flip Maps App</h1>
-            <h2 className="text-3xl font-bold gap-4">Old phones can learn new tricks!</h2>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-              quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
-            <Button className="" onClick={() => scrollToSection('start-here')}>
-              Get Started
-            </Button>
-            <Button  onClick={() => openNewTab()}>
+            <h2 className="text-3xl font-bold gap-4 mb-4">Old phones can learn new tricks!</h2>
+            <button  onClick={() => openNewTab()}>
               Open Source
-            </Button>
+            </button>
           </div>
         </div>
       </section>
-
-      {/* About Section */}
-      <section id="start-here" className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-12">
-          <div className="max-w-lg">
-            <h1 className="text-5xl font-bold">About The App!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-              quasi. In deleniti eaque aut repudiandae et a id nisi.
+      <div
+        className="hero-custom min-h-screen" style={{backgroundImage:"./assets/flipmap-campus-40.jpg"}}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-4 text-4xl font-bold">Flip phones belong in a musuem- at least that's what devs think.</h1>
+            <p className="mb-5">
+            Our project solves the lack of accessible, functional navigation tools for flip phones that run on Android, a rapidly growing niche segment of mobile devices. However, they are often excluded from modern navigation solutions due to hardware limitations, low resolution screens, and lack of optimized software. By creating a lightweight, modular navigation app tailored specifically for these constraints, we provide users of Android flip phones with reliable turn-by-turn directions, map viewing, and route planning. 
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
-      </section>
+      </div>
+      <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-4 text-4xl font-bold">But who's still using a flip phone?</h1>
+            <p className="mb-5">
+            These phones have been gaining popularity among users seeking simplicity, affordability, or a distraction-free way of living. Some are parens who choose basic phones for their children and want them to have access to reliable navigation when away from home. Others are individuals seeking to reduce screen time while still having access to essential smartphone functionality. The user base also includes those who want to be excluded from modern technology and want an alternative to mainstream tech.
+            </p>
+            <button className="btn btn-primary">Get Started</button>
+          </div>
+        </div>
+      </div>
+      <div className="hero bg-base-200 min-h-screen">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Contact us!</h1>
+    </div>
+    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card-body">
+        <fieldset className="fieldset">
+          <label className="label">Email</label>
+          <input type="email" className="input" placeholder="Email" />
+          <label className="label">How can we help?</label>
+          <textarea className="textarea" placeholder="Message"></textarea>
+          <button className="btn btn-neutral mt-4">Send</button>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
       <Footer />
     </>
   );

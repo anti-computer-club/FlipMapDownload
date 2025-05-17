@@ -12,29 +12,6 @@ const scrollToSection = (id) => {
 };
 
 function Demo() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Load theme from localStorage or system preference
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    } else {
-      setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-  }, []);
-
-  // Apply theme class to body
-  useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
-
-  const toggleTheme = (e) => {
-    const newTheme = e.target.checked ? 'dark' : 'light';
-    setIsDarkMode(e.target.checked);
-    localStorage.setItem('theme', newTheme);
-  };
-
   return (
     <>
       {/* Navbar */}
