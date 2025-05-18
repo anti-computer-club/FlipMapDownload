@@ -7,6 +7,7 @@ import { Button } from 'pixel-retroui';
 import ContactForm from './components/contactForm.jsx';
 import openNewTab from './utils/openNewTab.jsx';
 import stackImg from './assets/stack.png';
+import aidenCampusImg from './assets/aidenCampus.jpg';
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -39,19 +40,39 @@ function Home() {
 
 
       <div
-        className="hero-custom min-h-screen" style={{backgroundImage:"./assets/flipmap-campus-40.jpg"}}
+        className="hero min-h-screen"
+        style={{ backgroundImage: {aidenCampusImg} }}
       >
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-4 text-4xl font-bold">Flip phones belong in a musuem- at least that's what devs think.</h1>
-            <p className="mb-5">
-            Our project solves the lack of accessible, functional navigation tools for flip phones that run on Android, a rapidly growing niche segment of mobile devices. However, they are often excluded from modern navigation solutions due to hardware limitations, low resolution screens, and lack of optimized software. By creating a lightweight, modular navigation app tailored specifically for these constraints, we provide users of Android flip phones with reliable turn-by-turn directions, map viewing, and route planning. 
-            </p>
-            <Button className="btn btn-ghost">Get Started</Button>
+          <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h1 className="mb-4 text-4xl font-bold">
+                Flip phones belong in a museum — at least that’s what devs think.
+              </h1>
+              <p className="mb-5">
+              We’re working to add modern functionality without modern temptations. 
+              With flip map, you can navigate from place to place without anyone profiting 
+              from your data or attention. Big tech wants your attention. 
+              Log off without losing the perks of smartphone functionality.
+              </p>
+              <Button className="btn btn-ghost">Get Started</Button>
+            </div>
+            <div>
+              <p className="mb-5">
+              Our project solves the lack of accessible, functional navigation tools for flip 
+              phones that run on Android, a rapidly growing niche segment of mobile devices. 
+              However, they are often excluded from modern navigation solutions due to hardware 
+              limitations, low resolution screens, and lack of optimized software. 
+              By creating a lightweight, modular navigation app tailored specifically for 
+              these constraints, we provide users of Android flip phones with reliable turn-by-turn 
+              directions, map viewing, and route planning.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
 
 
 
