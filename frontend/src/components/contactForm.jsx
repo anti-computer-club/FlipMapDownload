@@ -28,10 +28,10 @@ function ContactForm() {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <fieldset className="fieldset">
-        <label className="label">Email</label>
+        <label className="label text-gray-900">Email</label>
         <input name="email" type="email" className="input" placeholder="Email" required />
 
-        <label className="label">How can we help?</label>
+        <label className="label text-gray-900">How can we help?</label>
         <textarea name="message" className="textarea" placeholder="Message" required></textarea>
 
         <button type="submit" className="btn btn-neutral mt-4">Send</button>

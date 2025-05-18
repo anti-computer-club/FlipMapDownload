@@ -1,8 +1,8 @@
 @import "tailwindcss";
-@import 'pixel-retroui/dist/index.css';
-@import 'pixel-retroui/dist/fonts.css';
+/* @import 'pixel-retroui/dist/index.css'; */
+/* @import 'pixel-retroui/dist/fonts.css'; */
 
-/* DaisyUI with themes */
+/* DaisyUI with themes */ 
 @plugin "daisyui" {
   themes: winter --default, night --prefersdark;
 }
@@ -12,12 +12,10 @@
   @apply w-full h-full flex flex-col items-center m-0 p-0;
 }
 
-/* Avoid conflict with DaisyUI `.card` */
 .custom-card {
   @apply p-8;
 }
 
-/* Avoid conflict with DaisyUI `.navbar` */
 .custom-navbar {
   @apply float-right overflow-hidden;
 }
@@ -32,7 +30,6 @@
 h1 {
   @apply pb-10;
 }
-
 
 
 .read-the-docs {
@@ -61,6 +58,11 @@ body {
       grid-column-start: 1;
       grid-row-start: 1;
   }
+}
+
+#technical-stack{
+  background-color: rgb(43, 48, 58);
+  color: #e3e3e3;
 }
 
 button {
