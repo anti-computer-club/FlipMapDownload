@@ -5,7 +5,7 @@ import Footer from './components/footer.jsx';
 import './App.css';
 import { Button } from 'pixel-retroui';
 import ContactForm from './components/contactForm.jsx';
-
+import openNewTab from './utils/openNewTab.jsx';
 import stackImg from './assets/stack.png';
 
 const scrollToSection = (id) => {
@@ -14,10 +14,6 @@ const scrollToSection = (id) => {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 };
-
-const openNewTab = () => {
-  window.open("https://github.com/anti-computer-club", "_blank");
-}
 
 function Home() {
   return (
@@ -33,7 +29,7 @@ function Home() {
           <div className="max-w-md">
             <h1 className="text-5xl font-extrabold">FlipMap App</h1>
             <h2 className="text-3xl font-bold gap-4 mb-4">Old phones can learn new tricks!</h2>
-            <button  onClick={() => openNewTab()}>
+            <button  onClick={() => openNewTab("https://github.com/anti-computer-club")} className="btn cursor-pointer hover">
               Open Source
             </button>
           </div>

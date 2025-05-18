@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import openNewTab from "./utils/openNewTab.jsx";
 import './App.css';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
@@ -34,7 +34,9 @@ function Demo() {
                 referrerPolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
-            <button className="btn btn-primary">Download Here</button>
+            <button  onClick={() => openNewTab("https://github.com/anti-computer-club/FlipMapDownload/blob/main/README.md")} className="btn cursor-pointer hover">
+              Download Here
+              </button>
           </div>
         </div>
       </section>
