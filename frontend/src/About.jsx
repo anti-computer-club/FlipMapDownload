@@ -8,7 +8,7 @@ import PreetImg from './assets/PreetImg.png';
 import bowlingPals from './assets/bowlingPals.jpeg';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
-import { Button, Card } from 'pixel-retroui';
+import { Button, Card, Bubble } from 'pixel-retroui';
 
 import './App.css';
 
@@ -18,7 +18,7 @@ function About() {
         <>
         <Header/>
         
-        <section className="hero min-h-screen bg-base-200 bgimg">
+        <section className="hero min-h-screen bg-base-200 bg-grid">
             <div className="hero-content">
                 <div className="text-center w-full">
                 <Card shadowColor="#9437ff" className="max-w-screen w-full my-10">
@@ -115,10 +115,10 @@ function About() {
                 </div>
             </div>
         </section>
-        <section id='challenges' className="min-h-screen bg-base-200">
-            <Card className="">
-                <div className="text-center w-full">
-                    <Card shadowColor="#9437ff" className="max-w-screen w-full my-10">
+        <section id='challenges' className="min-h-screen bg-grid bg-base-300">
+            <div className="">
+                <Card shadowColor="#9437ff" className="text-center w-full p-2">
+                    <Card  className="max-w-screen w-full my-10">
                         <p className=" font-bold mb-10">Our Challenges and Solutions</p>
                     </Card>
                     <p className="mb-5">
@@ -126,8 +126,18 @@ function About() {
                         It allows users to navigate from place to place without anyone profiting from their data or attention. 
                         The goal is to enable a smartphone-free life while still enjoying the perks of modern technology.
                     </p>
-                </div>
-            </Card>
+                    <Card className="w-full">
+                        <p className="mb-5">
+                            problem
+                        </p>
+                        <Bubble direction="right" className='p-4'>
+                            <p className="mb-5">
+                                Solution
+                            </p>
+                        </Bubble>
+                    </Card>
+                </Card>
+            </div>
         </section>
         <Footer />
         </>
