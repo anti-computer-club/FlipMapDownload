@@ -1,6 +1,13 @@
-import { Button } from "pixel-retroui";
+import { Button, Popup } from "pixel-retroui";
+import { useState } from "react";
+import ContactForm from "./contactForm.jsx";
 
 function Footer(){
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
+
     return(
         <footer className="footer bg-neutral text-neutral-content items-center p-4 relative">
             <aside className="flex items-center gap-2">
@@ -9,16 +16,34 @@ function Footer(){
             </svg>
             <p>Anti Computer Club © 2024–{new Date().getFullYear()} — All rights reserved</p>
             </aside>
-            <Button
-              bg="white"
-              textColor="black"
-              borderColor="black"
-              shadow="purple"
-              className='absolute right-4' 
-              onClick={() => window.scrollTo(0, 0)}
-            >
-                       back to top ^
-                      </Button>
+            <div className="absolute right-4 flex gap-4 ">
+                <div>
+                    <Button
+                        bg="white"
+                        textColor="black"
+                        borderColor="black"
+                        shadow="purple"
+                        className='' 
+                        onClick={openPopup}>
+                        contact us
+                    </Button>
+                    <Popup className="p-2"
+                        isOpen={isPopupOpen}
+                        onClose={closePopup}
+                    >
+                        <ContactForm className=""/>
+                    </Popup>
+                </div>
+                <Button
+                    bg="white"
+                    textColor="black"
+                    borderColor="black"
+                    shadow="purple"
+                    className='' 
+                    onClick={() => window.scrollTo(0, 0)}>
+                    back to top ^
+                </Button>
+            </div>
         </footer>
     )
 

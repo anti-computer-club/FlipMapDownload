@@ -27,16 +27,16 @@ function ContactForm() {
   };
 
   return (
-    <Card shadowColor="#9437ff" className="flex flex-col items-center w-full">
+    <Card shadowColor="#9437ff" className="flex flex-col items-center w-full p-2">
       <form ref={form} onSubmit={sendEmail}>
         <fieldset className="fieldset">
           <label className="label ">Email</label>
           <Input name="email" type="email" className="input" placeholder="Email" required />
 
           <label className="label ">How can we help?</label>
-          <TextArea name="message" className="textarea" placeholder="Message" required></TextArea>
+          <TextArea name="message" className="textarea mb-4" placeholder="Message" required></TextArea>
 
-          <Button type="submit">Send</Button>
+          <Button type="submit" className=''>Send</Button>
         </fieldset>
       </form>
     </Card>

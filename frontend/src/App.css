@@ -4,7 +4,7 @@
 
 /* DaisyUI with themes */ 
 @plugin "daisyui" {
-  themes: winter --default, night --prefersdark;
+  themes: winter --default, dark --prefersdark;
 }
 
 #root {
@@ -18,6 +18,12 @@
   background-size: 20px 20px;
 }
 
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 1px, transparent 1px) !important;
+}
+
 .bg-grid-white {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -25,8 +31,10 @@
   background-size: 20px 20px;
 }
 
-.custom-card {
-  @apply p-8;
+.dark .bg-grid-white {
+  background-image:
+  linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
 }
 
 .custom-navbar {
@@ -150,7 +158,7 @@ footer p {
 }
 
 .group-photo-container {
-  @apply w-4/5 h-[350px] mx-auto mb-10 overflow-hidden rounded-lg shadow-lg;
+  @apply w-4/5 h-[350px] mx-auto my-10 overflow-hidden;
 }
 
 .group-photo {

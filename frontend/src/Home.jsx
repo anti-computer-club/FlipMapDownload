@@ -12,6 +12,9 @@ import openNewTab from './utils/openNewTab.jsx';
 import stackImg from './assets/stack.png';
 import aidenCampusImg from '../public/aidenCampus.jpg';
 import reina101Img from './assets/reina101.jpg';
+import mock1Img from './assets/mockup1.jpg'
+import mock2Img from './assets/mockup2.jpg'
+
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -30,7 +33,7 @@ function Home() {
           <div className="flex flex-col items-center gap-8">
             <img src={testLogo} alt="Logo" className="h-100" />
             <div className="max-w-md">
-              <h1 className="text-5xl font-extrabold">FlipMap App</h1>
+              <p className="text-4xl font-bold">FlipMaps: A Navigation App</p>
               <h2 className="text-3xl font-bold gap-4 mb-4">Who said old phones can't learn new tricks?</h2>
             </div>
 
@@ -41,6 +44,7 @@ function Home() {
             Get started --> </Button>
 
         </Card>
+        
       </section>
 
       <div
@@ -74,8 +78,8 @@ function Home() {
           <Button className='absolute bottom-4 right-4' onClick={() => scrollToSection('benefits')}>
             Keep talking...
           </Button>
-
         </Card>
+
       </div>
 
 
@@ -85,11 +89,14 @@ function Home() {
         <div className="hero-content">
           <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2">
             <div className="flex flex-col items-center p-3">
-                <img
+                <Card shadowColor="#9437ff" className='w-fit h-fit'>
+                  <img
                   src={reina101Img}
-                  className="rounded-lg shadow-lg max-h-80 mb-10"
-                />
-                <Button className='' onClick={() => scrollToSection('technical-stack')}>
+                  className="max-h-80"
+                  />
+                </Card>
+               
+                <Button className='my-4' onClick={() => scrollToSection('technical-stack')}>
                   Our stack -->
                 </Button>
             </div>
@@ -119,7 +126,7 @@ function Home() {
             className="w-1/2 h-1/2 shadow-lg"
           />
           <Card shadowColor="#9437ff"
-             className="p-4 text-center"
+             className="p-4 text-center bg-grid"
           >
             <p className="text-3xl font-bold py-4">Our Technical Stack</p>
             <Button
@@ -136,19 +143,24 @@ function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <Card>
                     <p className="text-xl font-semibold  mb-2">Frontend</p>
-                    <p className=" mb-4">High-performance debloated modern libraries:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                      <li>Android’s Jetpack Compose</li>
-                      <li>Kotlin</li>
-                      <li>OpenStreetMap</li>
-                      <li>osmdroid</li>
-                    </ul>
+                    <div className="mt-10">
+                      <p className=" mb-4">High-performance debloated modern libraries:</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Android’s Jetpack Compose</li>
+                        <li>Kotlin</li>
+                        <li>OpenStreetMap</li>
+                        <li>osmdroid</li>
+                      </ul>
+                    </div>
                   </Card>
                   <Card>
                     <p className="text-xl font-semibold mb-2">Backend</p>
                     <ul className="list-disc list-inside  m space-y-5">
-                      <li>Rust</li>
-                      <li>Caddy</li>
+                      <li>Rust made asynchronous and RESTful with Tokio and Axum </li>
+                      <li>Caddy and Docker to deploy</li>
+                      <li>Photon for geocoding and reverse geocoding</li>
+                      <li>OpenRouteService for fetching routes</li>
+                      <li>*All reliant on the work of the OpenStreetMap community!*</li>
                     </ul>
                   </Card>
                 </div>
