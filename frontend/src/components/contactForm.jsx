@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { Card, Input, Button, TextArea } from 'pixel-retroui';
 
 function ContactForm() {
   const form = useRef();
@@ -26,17 +27,19 @@ function ContactForm() {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <fieldset className="fieldset">
-        <label className="label">Email</label>
-        <input name="email" type="email" className="input" placeholder="Email" required />
+    <Card shadowColor="#9437ff" className="flex flex-col items-center w-full p-2">
+      <form ref={form} onSubmit={sendEmail}>
+        <fieldset className="fieldset">
+          <label className="label ">Email</label>
+          <Input name="email" type="email" className="input" placeholder="Email" required />
 
-        <label className="label">How can we help?</label>
-        <textarea name="message" className="textarea" placeholder="Message" required></textarea>
+          <label className="label ">How can we help?</label>
+          <TextArea name="message" className="textarea mb-4" placeholder="Message" required></TextArea>
 
-        <button type="submit" className="btn btn-neutral mt-4">Send</button>
-      </fieldset>
-    </form>
+          <Button type="submit" className=''>Send</Button>
+        </fieldset>
+      </form>
+    </Card>
   );
 }
 
