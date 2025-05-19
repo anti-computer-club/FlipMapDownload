@@ -19,8 +19,12 @@ function Demo() {
       {/* Demo */}
       <section id="start-here" className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col gap-12">
-          <div className="max-w-lg">
-            <h1 className="text-5xl font-bold">The Demo!</h1>
+          <div className="max-w-screen w-full text-center">
+            <h1 className="text-5xl font-bold">Tired of your phone trying to get your attention?
+            </h1>
+            <p className="py-6 text-2xl">Curious about life with no smartphone? 
+              We’re enabling a smartphone-free life without sacrificing the valuable
+               parts of new technology. Try it out!</p>
           </div>
           <div className="max-w-md w-full flex flex-col items-center gap-8">
             <div className="w-full aspect-video">

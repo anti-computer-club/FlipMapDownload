@@ -3,11 +3,14 @@ import testLogo from './assets/logo.png';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import './App.css';
-import { Button } from 'pixel-retroui';
+import { Button, Card } from 'pixel-retroui';
 import ContactForm from './components/contactForm.jsx';
+
 import openNewTab from './utils/openNewTab.jsx';
+
 import stackImg from './assets/stack.png';
-import aidenCampusImg from './assets/aidenCampus.jpg';
+import aidenCampusImg from '../public/aidenCampus.jpg';
+import reina101Img from './assets/reina101.jpg';
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -20,33 +23,31 @@ function Home() {
   return (
     <>
       <Header/>
-
-      {/* Hero Section */}
-      
-      <section className="hero min-h-screen bg-base-200 bgimg">
+      <section className="hero min-h-screen  bgimg">
      
-        <div className="hero-content text-center">
-        <img src={testLogo} alt="Logo" className="h-100" />
-          <div className="max-w-md">
-            <h1 className="text-5xl font-extrabold">FlipMap App</h1>
-            <h2 className="text-3xl font-bold gap-4 mb-4">Old phones can learn new tricks!</h2>
-            <button  onClick={() => openNewTab("https://github.com/anti-computer-club")} className="btn cursor-pointer hover">
-              Open Source
-            </button>
+        <Card className="hero-content relative">
+          <div className="flex flex-col items-center gap-8">
+            <img src={testLogo} alt="Logo" className="h-100" />
+            <div className="max-w-md">
+              <h1 className="text-5xl font-extrabold">FlipMap App</h1>
+              <h2 className="text-3xl font-bold gap-4 mb-4">Who said old phones can't learn new tricks?</h2>
+            </div>
+
           </div>
-        </div>
+          <Button className='absolute bottom-4 right-4' 
+            onClick={() => document.getElementById('start-here')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Get started --> </Button>
+
+        </Card>
       </section>
 
-
-
       <div
-        className="hero min-h-screen"
-        style={{ backgroundImage: {aidenCampusImg} }}
+        className="hero min-h-screen relative" id='start-here'
       >
-        <div className="hero-overlay"></div>
-        <div className="hero-content text-neutral-content">
+        <Card className="">
           <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
+            <Card className="w-full">
               <h1 className="mb-4 text-4xl font-bold">
                 Flip phones belong in a museum — at least that’s what devs think.
               </h1>
@@ -56,8 +57,7 @@ function Home() {
               from your data or attention. Big tech wants your attention. 
               Log off without losing the perks of smartphone functionality.
               </p>
-              <Button className="btn btn-ghost">Get Started</Button>
-            </div>
+            </Card>
             <div>
               <p className="mb-5">
               Our project solves the lack of accessible, functional navigation tools for flip 
@@ -70,20 +70,46 @@ function Home() {
               </p>
             </div>
           </div>
-        </div>
+          <Button className='absolute bottom-4 right-4' 
+            onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Keep talking...
+          </Button>
+
+        </Card>
       </div>
 
 
 
 
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-4 text-4xl font-bold">But who's still using a flip phone?</h1>
-            <p className="mb-5 text-gray-900">
-            These phones have been gaining popularity among users seeking simplicity, affordability, or a distraction-free way of living. Some are parents who choose basic phones for their children and want them to have access to reliable navigation when away from home. Others are individuals seeking to reduce screen time while still having access to essential smartphone functionality. The user base also includes those who want to be excluded from modern technology and want an alternative to mainstream tech.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+      <div className="hero min-h-screen" id="benefits">
+        <div className="hero-content">
+          <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2">
+            <div className="flex flex-col items-center p-3">
+                <img
+                  src={reina101Img}
+                  className="rounded-lg shadow-lg max-h-80 mb-10"
+                />
+                <Button className='' 
+                  onClick={() => document.getElementById('technical-stack')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Our stack -->
+                </Button>
+            </div>
+            <Card>
+              <h1 className="mb-4 text-4xl font-bold">
+              But who benefits from this project?
+              </h1>
+              <p className="mb-5">
+              These phones have been gaining popularity among users seeking simplicity, 
+              affordability, or a distraction-free way of living. Some are parents who 
+              choose basic phones for their children and want them to have access to reliable 
+              navigation when away from home. Others are individuals seeking to reduce screen 
+              time while still having access to essential smartphone functionality. The user 
+              base also includes those who want to be excluded from modern technology and want 
+              an alternative to mainstream tech.
+              </p>
+            </Card>
           </div>
         </div>
       </div>
@@ -95,44 +121,56 @@ function Home() {
             src={stackImg}
             className="w-1/2 h-1/2"
           />
-          <div>
+          <Card   
+             className="p-4 text-center"
+          >
             <h1 className="text-5xl font-bold py-4">Our Technical Stack</h1>
-            <div class=" p-8 font-sans">
-              <div class="max-w-5xl mx-auto rounded-2xl p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h2 class="text-3xl font-semibold  mb-2">Frontend</h2>
-                    <p class=" mb-4 text-xl">High-performance debloated modern libraries:</p>
-                    <ul class="list-disc list-inside space-y-1">
+            <Button
+                // bg="#fefcd0"
+                // textColor="black"
+                // borderColor="black"
+                // shadow="#c381b5"
+                onClick={() => openNewTab("https://github.com/anti-computer-club")}
+              >
+                Open Source
+            </Button>
+            <div className=" p-8 font-sans">
+              <div className="max-w-5xl mx-auto rounded-2xl p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <Card>
+                    <p className="text-xl font-semibold  mb-2">Frontend</p>
+                    <p className=" mb-4">High-performance debloated modern libraries:</p>
+                    <ul className="list-disc list-inside space-y-1">
                       <li>Android’s Jetpack Compose</li>
                       <li>Kotlin</li>
                       <li>OpenStreetMap</li>
                       <li>osmdroid</li>
                     </ul>
-                  </div>
-                  <div>
-                    <h2 class="text-3xl font-semibold mb-2">Backend</h2>
-                    <ul class="list-disc list-inside space-y-1">
+                  </Card>
+                  <Card>
+                    <p className="text-xl font-semibold mb-2">Backend</p>
+                    <ul className="list-disc list-inside  m space-y-5">
                       <li>Rust</li>
                       <li>Caddy</li>
                     </ul>
-                  </div>
+                  </Card>
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
       </div>
 
 
 
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen w-full">
         <div className="hero-content flex-col lg:flex-row-reverse">
+        <p className="text-l">Questions? Comments?</p>
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Contact us!</h1>
+            <p className="text-3xl font-bold">Contact us!</p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
+            <div className="">
             <ContactForm />
             </div>
           </div>

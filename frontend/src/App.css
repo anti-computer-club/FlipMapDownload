@@ -1,6 +1,6 @@
 @import "tailwindcss";
-/* @import 'pixel-retroui/dist/index.css'; */
-/* @import 'pixel-retroui/dist/fonts.css'; */
+@import 'pixel-retroui/dist/index.css'; 
+@import 'pixel-retroui/dist/fonts.css';
 
 /* DaisyUI with themes */ 
 @plugin "daisyui" {
@@ -63,10 +63,6 @@ body {
 #technical-stack{
   background-color: rgb(43, 48, 58);
   color: #e3e3e3;
-}
-
-button {
-  @apply bg-success text-white px-6 py-3 rounded-lg text-xl font-semibold transition-colors mx-5;
 }
 
 footer {

@@ -8,6 +8,7 @@ import PreetImg from './assets/PreetImg.png';
 import bowlingPals from './assets/bowlingPals.jpeg';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
+import { Button, Card } from 'pixel-retroui';
 
 import './App.css';
 
