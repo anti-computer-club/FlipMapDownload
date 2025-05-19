@@ -6,7 +6,7 @@ import { Card, Button } from "pixel-retroui";
 function Header() {
     return (
        <div className="navbar bg-base-100 shadow-sm px-2 rounded-4xl">
-        <Card className="w-full relative">
+        <Card shadowColor="#9437ff" className="w-full relative">
           <div className="flex items-center gap-4">
             <img src={testLogo} alt="Logo" className="logo" />
             <span className="text-3xl font-extrabold">FlipMaps</span>

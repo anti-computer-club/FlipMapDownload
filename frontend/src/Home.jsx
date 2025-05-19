@@ -3,6 +3,7 @@ import testLogo from './assets/logo.png';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import './App.css';
+import {Link} from 'react-router-dom';
 import { Button, Card } from 'pixel-retroui';
 import ContactForm from './components/contactForm.jsx';
 
@@ -35,7 +36,7 @@ function Home() {
 
           </div>
           <Button className='absolute bottom-4 right-4' 
-            onClick={() => document.getElementById('start-here')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => scrollToSection('start-here')}
           >
             Get started --> </Button>
 
@@ -70,9 +71,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <Button className='absolute bottom-4 right-4' 
-            onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
-          >
+          <Button className='absolute bottom-4 right-4' onClick={() => scrollToSection('benefits')}>
             Keep talking...
           </Button>
 
@@ -90,9 +89,7 @@ function Home() {
                   src={reina101Img}
                   className="rounded-lg shadow-lg max-h-80 mb-10"
                 />
-                <Button className='' 
-                  onClick={() => document.getElementById('technical-stack')?.scrollIntoView({ behavior: 'smooth' })}
-                >
+                <Button className='' onClick={() => scrollToSection('technical-stack')}>
                   Our stack -->
                 </Button>
             </div>
@@ -115,7 +112,7 @@ function Home() {
       </div>
 
 
-      <Card className="hero min-h-screen" id='technical-stack'>
+      <Card className="hero min-h-screen relative" id='technical-stack'>
         <div className="hero-content pb-2">
           <img
             src={stackImg}
@@ -158,6 +155,7 @@ function Home() {
               </div>
             </div>
           </Card>
+          <Link to="/about#challenges" className='opacity-50 hover: cursor-pointer '>We've had some challenges. Here's how we dealt with them.</Link>
         </div>
       </Card>
 

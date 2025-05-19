@@ -21,8 +21,10 @@ function About() {
         <section className="hero min-h-screen bg-base-200 bgimg">
             <div className="hero-content">
                 <div className="text-center w-full">
-                <h1 className="text-5xl font-bold mb-10">About The Team!</h1>
-                <div className="group-photo-container">
+                <Card shadowColor="#9437ff" className="max-w-screen w-full my-10">
+                    <p className=" font-bold mb-10">About The Team!</p>
+                </Card>
+                <div className="group-photo-container my-5">
                     <img src={bowlingPals} className="group-photo" alt="Team group photo" />
                 </div>
                 <div className="member-container">
@@ -112,6 +114,20 @@ function About() {
                 </div>
                 </div>
             </div>
+        </section>
+        <section id='challenges' className="min-h-screen bg-base-200">
+            <Card className="">
+                <div className="text-center w-full">
+                    <Card shadowColor="#9437ff" className="max-w-screen w-full my-10">
+                        <p className=" font-bold mb-10">Our Challenges and Solutions</p>
+                    </Card>
+                    <p className="mb-5">
+                        FlipMap is a project that aims to provide a smartphone-free experience without sacrificing the valuable parts of new technology. 
+                        It allows users to navigate from place to place without anyone profiting from their data or attention. 
+                        The goal is to enable a smartphone-free life while still enjoying the perks of modern technology.
+                    </p>
+                </div>
+            </Card>
         </section>
         <Footer />
         </>
