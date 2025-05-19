@@ -27,7 +27,7 @@ function ContactForm() {
   };
 
   return (
-    <Card className="flex flex-col items-center w-full">
+    <Card shadowColor="#9437ff" className="flex flex-col items-center w-full">
       <form ref={form} onSubmit={sendEmail}>
         <fieldset className="fieldset">
           <label className="label ">Email</label>

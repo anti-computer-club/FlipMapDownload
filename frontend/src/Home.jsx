@@ -25,7 +25,7 @@ function Home() {
       <Header/>
       <section className="hero min-h-screen  bgimg">
      
-        <Card className="hero-content relative">
+        <Card  shadowColor="#9437ff" className="hero-content relative">
           <div className="flex flex-col items-center gap-8">
             <img src={testLogo} alt="Logo" className="h-100" />
             <div className="max-w-md">
@@ -45,12 +45,12 @@ function Home() {
       <div
         className="hero min-h-screen relative" id='start-here'
       >
-        <Card className="">
+        <Card   shadowColor="#9437ff" className="">
           <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="w-full">
-              <h1 className="mb-4 text-4xl font-bold">
+            <Card   shadowColor="#000000" className="w-full">
+              <p className="mb-4 font-bold">
                 Flip phones belong in a museum — at least that’s what devs think.
-              </h1>
+              </p>
               <p className="mb-5">
               We’re working to add modern functionality without modern temptations. 
               With flip map, you can navigate from place to place without anyone profiting 
@@ -96,10 +96,10 @@ function Home() {
                   Our stack -->
                 </Button>
             </div>
-            <Card>
-              <h1 className="mb-4 text-4xl font-bold">
+            <Card shadowColor="#9437ff">
+              <p className="mb-4 font-bold">
               But who benefits from this project?
-              </h1>
+              </p>
               <p className="mb-5">
               These phones have been gaining popularity among users seeking simplicity, 
               affordability, or a distraction-free way of living. Some are parents who 
@@ -115,16 +115,16 @@ function Home() {
       </div>
 
 
-      <div className="hero min-h-screen" id='technical-stack'>
+      <Card className="hero min-h-screen" id='technical-stack'>
         <div className="hero-content pb-2">
           <img
             src={stackImg}
             className="w-1/2 h-1/2"
           />
-          <Card   
+          <Card shadowColor="#9437ff"
              className="p-4 text-center"
           >
-            <h1 className="text-5xl font-bold py-4">Our Technical Stack</h1>
+            <p className="text-3xl font-bold py-4">Our Technical Stack</p>
             <Button
                 // bg="#fefcd0"
                 // textColor="black"
@@ -159,7 +159,7 @@ function Home() {
             </div>
           </Card>
         </div>
-      </div>
+      </Card>
 
 
 

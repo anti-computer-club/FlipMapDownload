@@ -7,7 +7,6 @@
   themes: winter --default, night --prefersdark;
 }
 
-/* Root layout */
 #root {
   @apply w-full h-full flex flex-col items-center m-0 p-0;
 }
