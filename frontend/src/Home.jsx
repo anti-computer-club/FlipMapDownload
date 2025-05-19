@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <Header/>
-      <section className="hero min-h-screen  bgimg">
+      <section className="hero bg min-h-screen bg-grid">
      
         <Card  shadowColor="#9437ff" className="hero-content relative">
           <div className="flex flex-col items-center gap-8">
@@ -44,7 +44,7 @@ function Home() {
       </section>
 
       <div
-        className="hero min-h-screen relative" id='start-here'
+        className="hero min-h-screen relative bg-grid" id='start-here'
       >
         <Card   shadowColor="#9437ff" className="">
           <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -81,7 +81,7 @@ function Home() {
 
 
 
-      <div className="hero min-h-screen" id="benefits">
+      <div className="hero min-h-screen bg-grid" id="benefits">
         <div className="hero-content">
           <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2">
             <div className="flex flex-col items-center p-3">
@@ -112,11 +112,11 @@ function Home() {
       </div>
 
 
-      <Card className="hero min-h-screen relative" id='technical-stack'>
+      <Card className="hero min-h-screen relative bg-grid-white" id='technical-stack'>
         <div className="hero-content pb-2">
           <img
             src={stackImg}
-            className="w-1/2 h-1/2"
+            className="w-1/2 h-1/2 shadow-lg"
           />
           <Card shadowColor="#9437ff"
              className="p-4 text-center"
@@ -161,7 +161,7 @@ function Home() {
 
 
 
-      <div className="hero bg-base-200 min-h-screen w-full">
+      <div className="hero bg-base-200 min-h-screen w-full bg-grid">
         <div className="hero-content flex-col lg:flex-row-reverse">
         <p className="text-l">Questions? Comments?</p>
           <div className="text-center lg:text-left">
