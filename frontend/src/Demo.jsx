@@ -6,6 +6,7 @@ import Footer from './components/footer.jsx';
 import {Card, Button} from 'pixel-retroui';
 import mock1Img from './assets/mockup1.jpg';
 import mock2Img from './assets/mockup2.jpg';
+import DemoVid from './assets/demo.mp4';
 
 
 const scrollToSection = (id) => {
@@ -29,7 +30,8 @@ function Demo() {
             <p className="py-6 text-2xl">Curious about life with no smartphone? 
               We’re enabling a smartphone-free life without sacrificing the valuable
                parts of new technology. Try it out!</p>
-            <Button  onClick={() => openNewTab("https://github.com/anti-computer-club/FlipMapDownload/blob/main/README.md")} 
+            <Button  onClick={() => openNewTab("https://github.com/anti-computer-club/FlipMapDownload/blob/main/README.md")}
+              bg="#80EF80" 
               className="w-xl cursor-pointer hover"
             >
               Download Here
@@ -39,10 +41,12 @@ function Demo() {
           <div className="max-w-md w-full flex flex-col items-center gap-8">
           <div className="w-screen">
             <div className="flex gap-4 p-4 w-fit justify-around ">   
-              <Card className="w-fit h-fit"> 
-                <img src={mock2Img} alt="Get where you need to go." className="w-xl h-fit rounded-lg" />
+              <Card shadowColor='#9437ff' className="w-fit h-fit"> 
+              <video controls className="w-3xl max-h-[500px] shadow-2xl rounded-lg object-contain">
+                <source src={DemoVid} type="video/mp4"/>
+              </video>
               </Card>
-              <Card className="w-full flex justify-center items-center bg-grid">
+              <Card shadowColor='#9437ff' className="w-full flex justify-center items-center bg-grid">
                 <img
                   src={mock1Img}
                   alt="Aiden Navigating"

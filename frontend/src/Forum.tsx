@@ -5,8 +5,9 @@ import Footer from './components/footer';
 import ForumPost from './components/forumPost';
 import { formatDistanceToNow } from 'date-fns';
 
-import muGrpEditImg from './assets/muGroupEdited.jpg';
-import muGrpImg from './assets/muGroupPic.jpg';
+// import muGrpEditImg from './assets/muGroupEdited.jpg';
+// import muGrpImg from './assets/muGroupPic.jpg';
+import mockup2 from './assets/mockup2.jpg';
 
 import {Card, Button, Popup, Accordion, TextArea, Input} from 'pixel-retroui';
 
@@ -107,7 +108,7 @@ function Forum() {
               <p>Welcome to the forum! Share your thoughts and ideas.</p>
             </Card>
             <Card shadowColor='#9437ff' className="p-0">
-              <img src={muGrpImg} alt="You wish you were this cool, don't you?" className="m-0 opacity-80" />
+              <img src={mockup2} alt="You wish you were this cool, don't you?" className="m-0 opacity-80" />
             </Card>
             <Card shadowColor='#9437ff' className={`p-4 ${cardBgClass}`}>
               <h2 className="text-xl font-bold">Latest Posts</h2>
@@ -123,7 +124,7 @@ function Forum() {
           <section className="md:col-span-2 space-y-6">
             <p className="text-3xl font-bold">Posts</p>
 
-            <Card shadowColor='#9437ff' className="p-4" background-image={muGrpImg}>
+            <Card shadowColor='#9437ff' className="p-4">
               {isSignedIn ? (
                 <div className="p-4 flex flex-col items-center ">  
                   <Input
