@@ -5,6 +5,11 @@ import Footer from './components/footer';
 import ForumPost from './components/forumPost';
 import { formatDistanceToNow } from 'date-fns';
 
+import muGrpEditImg from './assets/muGroupEdited.jpg';
+import muGrpImg from './assets/muGroupPic.jpg';
+
+import {Card, Button, Popup, Accordion, TextArea, Input} from 'pixel-retroui';
+
 interface Post {
   id: string;
   title: string;
@@ -94,34 +99,54 @@ function Forum() {
         localStorage.setItem('theme', theme);
       }} />
 
-      <main className="min-h-screen p-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <main className="bg-grid min-h-screen p-6">
+        <div className=" mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+          <section className="md:col-span-1 space-y-6 items-stretch">
+            <Card shadowColor='#9437ff' className="p-2">
+              <p className="text-2xl font-bold">Forum</p>
+              <p>Welcome to the forum! Share your thoughts and ideas.</p>
+            </Card>
+            <Card shadowColor='#9437ff' className="p-0">
+              <img src={muGrpImg} alt="You wish you were this cool, don't you?" className="m-0 opacity-80" />
+            </Card>
+            <Card shadowColor='#9437ff' className={`p-4 ${cardBgClass}`}>
+              <h2 className="text-xl font-bold">Latest Posts</h2>
+              {posts.slice(0, 5).map(post => (
+                <div key={post.id} className="mb-4">
+                  <h3 className="text-lg font-semibold">{post.title}</h3>
+                  <p>{post.content}</p>
+                  <p className="text-sm text-gray-500">{timeAgo(post.createdAt)}</p>
+                </div>
+              ))}
+            </Card>
+          </section>
           <section className="md:col-span-2 space-y-6">
-            <h1 className="text-3xl font-bold">Posts</h1>
+            <p className="text-3xl font-bold">Posts</p>
 
-            <div className={`card bg-base-200 shadow-md p-4 ${cardBgClass}`}>
+            <Card shadowColor='#9437ff' className="p-4" background-image={muGrpImg}>
               {isSignedIn ? (
-                <>
-                  <input
-                    className="input input-bordered w-full mb-3"
+                <div className="p-4 flex flex-col items-center ">  
+                  <Input
+                    className="input input-bordered w-full m-3"
                     placeholder="Post title"
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                   />
-                  <textarea
+                  <TextArea
                     className="textarea textarea-bordered w-full mb-3"
                     placeholder="What's on your mind?"
                     value={content}
                     onChange={e => setContent(e.target.value)}
                   />
-                  <button
+                  <Button
+                    shadow='#9437ff'
                     onClick={handleCreatePost}
-                    className="btn btn-primary"
+                    className="w-full"
                     disabled={!title.trim() || !content.trim()}
                   >
                     Post
-                  </button>
-                </>
+                  </Button>
+                </div>
               ) : (
                 <div className="text-center">
                   <p className="mb-3">You must be signed in to create a post.</p>
@@ -130,7 +155,7 @@ function Forum() {
                   </SignInButton>
                 </div>
               )}
-            </div>
+            </Card>
 
             <div className="space-y-6">
               {posts.length > 0 ? posts.map(post => (
