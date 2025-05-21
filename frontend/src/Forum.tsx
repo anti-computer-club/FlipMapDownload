@@ -108,7 +108,7 @@ function Forum() {
               <p>Welcome to the forum! Share your thoughts and ideas.</p>
             </Card>
             <Card shadowColor='#9437ff' className="p-0">
-              <img src={mockup2} alt="You wish you were this cool, don't you?" className="m-0 opacity-80" />
+              <img src={mockup2} alt="You wish you were this cool, don't you?" className="m-0" />
             </Card>
             <Card shadowColor='#9437ff' className={`p-4 ${cardBgClass}`}>
               <h2 className="text-xl font-bold">Latest Posts</h2>

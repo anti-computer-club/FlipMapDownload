@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 
-import {Card, Button} from 'pixel-retroui';
+import {Card, Button, Bubble} from 'pixel-retroui';
 import mock1Img from './assets/mockup1.jpg';
 import mock2Img from './assets/mockup2.jpg';
 import DemoVid from './assets/demo.mp4';
@@ -40,7 +40,10 @@ function Demo() {
 
           <div className="max-w-md w-full flex flex-col items-center gap-8">
           <div className="w-screen">
-            <div className="flex gap-4 p-4 w-fit justify-around ">   
+            <div className="flex gap-4 p-4 w-fit justify-around ">  
+              <Bubble direction="right" className="max-h-20">
+                  Play me!
+              </Bubble> 
               <Card shadowColor='#9437ff' className="w-fit h-fit"> 
               <video controls className="w-3xl max-h-[500px] shadow-2xl rounded-lg object-contain">
                 <source src={DemoVid} type="video/mp4"/>
