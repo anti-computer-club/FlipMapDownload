@@ -75,3 +75,10 @@ Just repeat these steps with the latest `.apk` file. No need to delete the old a
 
 ---
 
+## For Developers:
+
+If you feel like branching or contributing to our project, visit the GitHub Project to see what the community is up to! 
+https://github.com/orgs/anti-computer-club/projects/5/views/1
+
+---
+
