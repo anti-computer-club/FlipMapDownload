@@ -1,6 +1,8 @@
 # Install Our Maps App for Flip Phones
 
-This app is designed specifically for dumbphones. While it can be ran on Android smartphones, usability may be hindered greatly
+This app is designed specifically for dumbphones. While it can be ran on Android smartphones, usability may be hindered greatly.
+
+Our project solves the lack of accessible, functional navigation tools for flip phones that run on Android, a rapidly growing niche segment of mobile devices. However, they are often excluded from modern navigation solutions due to hardware limitations, low resolution screens, and lack of optimized software. By creating a lightweight, modular navigation app tailored specifically for these constraints, we provide users of Android flip phones with reliable turn-by-turn directions, map viewing, and route planning.
 
 Here's a breakdown on how to install our app:
 
