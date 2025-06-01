@@ -192,21 +192,6 @@ function About() {
                                 </p>
                             </Bubble>
                         </Card>
-                        <Card className="w-full bg-grid">
-                            <p className="mb-32 font-bold text-xl">Not enough flip phones for testing</p>
-                            <p className="">We simply didn’t have many flip phones to test the app on, 
-                                and getting our hands on the right ones wasn't as easy as it would with
-                                the latest smartphones.
-                            </p>
-                            <Bubble direction="right" className='p-4 m-10'>
-                                <p className="mb-5">
-                                So, some of us got our own flip phones to use for testing, so we could make
-                                sure the app works well on real devices. Though it's slow-going to find user testers this way,
-                                we're able to share our devices with others to get feedback.
-
-                                </p>
-                            </Bubble>
-                        </Card>
                     </div>
                 </Card>
             </div>
