@@ -9,12 +9,6 @@ import mock2Img from './assets/mockup2.jpg';
 import DemoVid from './assets/demo.mp4';
 
 
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 function Demo() {
   return (

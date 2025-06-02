@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 
+// CommentSection component to display and manage comments for each post
 function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
@@ -25,8 +26,11 @@ function CommentSection({ postId }) {
     fetchComments();
   }, [postId]);
 
+  // Handle comment submission
   const handleSubmit = async (e) => {
+    // Prevent default form submission
     e.preventDefault();
+    // Validate new comment
     try {
       const token = await getToken();
       const postRes = await fetch(`http://localhost:4000/api/posts/${postId}/comments`, {
@@ -37,7 +41,7 @@ function CommentSection({ postId }) {
         },
         body: JSON.stringify({ content: newComment }),
       });
-
+      // Check if the response is ok
       if (!postRes.ok) {
         const errData = await postRes.json().catch(() => null);
         console.error('Failed to create comment:', postRes.status, errData);
@@ -62,6 +66,7 @@ function CommentSection({ postId }) {
     }
   };
 
+  //component structure
   return (
     <div className="collapse collapse-arrow bg-base-200 mt-4">
       <input type="checkbox" />

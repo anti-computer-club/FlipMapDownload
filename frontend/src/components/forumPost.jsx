@@ -3,9 +3,12 @@ import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons';
 import CommentSection from './commentSection.jsx';
 import { formatDistanceToNow } from 'date-fns';
 
+// Component to display a forum post with comments
 function ForumPost({ post }) {
+  // Format the creation date to a human-readable "time ago" format
   const timeAgo = formatDistanceToNow(new Date(post.createdAt), { addSuffix: true });
 
+  // Render the forum post with title, content, author, and time
   return (
     <div className="card bg-base-200 shadow-md">
       <div className="card-body">
