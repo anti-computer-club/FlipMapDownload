@@ -41,7 +41,7 @@ function Home() {
           <Button className='absolute bottom-4 right-4' 
             onClick={() => scrollToSection('start-here')}
           >
-            Get started --> </Button>
+            Get started &rarr; </Button>
 
         </Card>
         
@@ -97,7 +97,7 @@ function Home() {
                 </Card>
                
                 <Button className='my-4' onClick={() => scrollToSection('technical-stack')}>
-                  Our stack -->
+                  Our stack &rarr;
                 </Button>
             </div>
             <Card shadowColor="#9437ff">

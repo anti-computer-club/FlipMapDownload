@@ -3,7 +3,6 @@ import testLogo from '../assets/logo.png';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 import { Card, Button } from "pixel-retroui";
 
-// Header component with navigation links and sign-in buttons
 function Header() {
     return (
        <div className="navbar bg-base-100 shadow-sm px-2 rounded-4xl">

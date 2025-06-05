@@ -1,28 +1,44 @@
+
+version: '3.9'
+
 services:
-  backend:
-    image: download-backend:latest
+  frontend:
+    build: ./frontend
     ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT_INTERNAL}"
+      - "5173:5173"
     environment:
-      PORT: ${BACKEND_PORT_INTERNAL}
-      FRONTEND_URL: ${FRONTEND_URL}
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      VITE_CLERK_FRONTEND_API: ${CLERK_FRONTEND_API}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY}
+      CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
       - db
 
-  frontend:
-    image: download-frontend:latest
-    ports:
-      - ${FRONTEND_PORT}:5173
-    environment:
-      VITE_CLERK_PUBLISHABLE_KEY: ${VITE_CLERK_PUBLISHABLE_KEY}
-
   db:
-    image: postgres
+    image: postgres:16
     restart: always
-    environment: [POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB]
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app_db
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  db_data:

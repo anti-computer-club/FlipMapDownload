@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^5.31.2",
+    "@clerk/clerk-react": "^5.31.8",
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
@@ -18,24 +18,27 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tailwindcss/vite": "^4.1.4",
-    "daisyui": "^5.0.21",
     "date-fns": "^4.1.0",
     "pixel-retroui": "^2.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-embed": "^3.7.0",
-    "react-router-dom": "^7.6.0",
-    "tailwindcss": "^4.1.4"
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
+    "@types/date-fns": "^2.5.3",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.0.43",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8",
     "vite": "^6.3.5"
   }
 }

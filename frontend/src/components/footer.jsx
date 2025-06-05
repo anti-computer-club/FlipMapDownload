@@ -2,15 +2,12 @@ import { Button, Popup } from "pixel-retroui";
 import { useState } from "react";
 import ContactForm from "./contactForm.jsx";
 
-// Footer component with contact form and back to top button
 function Footer(){
-    // State to manage the popup visibility
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    // Functions to open and close the popup
+
     const openPopup = () => setIsPopupOpen(true);
     const closePopup = () => setIsPopupOpen(false);
 
-    // Render the footer
     return(
         <footer className="footer bg-neutral text-neutral-content items-center p-4 relative">
             <aside className="flex items-center gap-2">

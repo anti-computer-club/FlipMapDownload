@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@import 'pixel-retroui/dist/index.css'; 
+@import 'pixel-retroui/dist/fonts.css';
+
+/* DaisyUI with themes */ 
+@plugin "daisyui" {
+  themes: winter --default, dark --prefersdark;
+}
+
+#root {
+  @apply w-full h-full flex flex-col items-center m-0 p-0;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 1px, transparent 1px) !important;
+}
+
+.bg-grid-white {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-white {
+  background-image:
+  linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
+}
+
+.custom-navbar {
+  @apply float-right overflow-hidden;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+h1 {
+  @apply pb-10;
+}
+
+
+.read-the-docs {
+  color: #888;
+}
+
+.bgimg {
+  background-image: url('');
+}
+
+body {
+  @apply bg-base-100 text-base-content transition-colors;
+}
+
+.hero {
+  @apply py-24 text-center bg-base-200 transition-colors;
+}
+
+.hero-custom {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  & > * {
+      grid-column-start: 1;
+      grid-row-start: 1;
+  }
+}
+
+#technical-stack{
+  background-color: rgb(43, 48, 58);
+  color: #e3e3e3;
+}
+
+footer {
+  @apply bg-neutral text-neutral-content p-5 text-center transition-colors;
+}
+
+footer svg {
+  @apply fill-current text-white;
+}
+
+footer p {
+  font-size: 0.875rem;
+}
+
+.member-container {
+  @apply flex flex-wrap justify-center gap-8 w-full max-w-screen-xl mx-auto;
+}
+
+.flip-card {
+  width: calc(33.33% - 30px);
+  height: 300px; 
+  perspective: 1000px;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.flip-card-inner {
+  @apply relative w-full h-full text-center transition-transform duration-500;
+  transform-style: preserve-3d;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+  border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  @apply absolute w-full h-full flex items-center justify-center rounded-xl p-5 box-border;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #ff8f00;
+  color: black;
+  opacity: 0.8;
+}
+
+.flip-card-back {
+  background-color: #ff6d00;
+  color: white;
+  opacity: 0.8;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front h2 {
+  @apply text-2xl font-bold mt-4;
+}
+
+.hero-content {
+  @apply w-full max-w-screen-xl flex flex-col items-center;
+}
+
+.team-image {
+  @apply rounded-full w-36 h-36 object-cover mb-4;
+}
+
+@media (max-width: 900px) {
+  .flip-card {
+    @apply w-full max-w-lg;
+  }
+}
+
+.group-photo-container {
+  @apply w-4/5 h-[350px] mx-auto my-10 overflow-hidden;
+}
+
+.group-photo {
+  @apply w-full h-[125%] object-cover block;
+}
+
+@media (max-width: 768px) {
+  .group-photo-container {
+    @apply w-[95%] h-[200px];
+  }
+}

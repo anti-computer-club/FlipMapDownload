@@ -9,7 +9,6 @@ import Forum from './Forum.tsx';
 import Demo from './Demo.jsx';
 import About from './About.jsx';
 
-// import the Clerk Publishable Key and ensure it is set in the environment variables
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!clerkPubKey) {

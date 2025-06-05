@@ -5,6 +5,8 @@ import Footer from './components/footer';
 import ForumPost from './components/forumPost';
 import { formatDistanceToNow } from 'date-fns';
 
+// import muGrpEditImg from './assets/muGroupEdited.jpg';
+// import muGrpImg from './assets/muGroupPic.jpg';
 import mockup2 from './assets/mockup2.jpg';
 
 import {Card, Button, Popup, Accordion, TextArea, Input} from 'pixel-retroui';
@@ -13,8 +15,8 @@ interface Post {
   id: string;
   title: string;
   content: string;
-  authorName: string;      
-  createdAt: string;        
+  authorName: string;       // ← Added
+  createdAt: string;        // ← Added
 }
 
 function Forum() {
@@ -26,10 +28,11 @@ function Forum() {
   const [content, setContent] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // theme logic omitted for brevity...
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/posts');
+      const res = await fetch('http://localhost:3000/api/posts');
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data: Post[] = await res.json();
       setPosts(data);
@@ -39,45 +42,50 @@ function Forum() {
   };
 
   const handleCreatePost = async () => {
-    if (!isSignedIn) {
-      alert('You must be signed in to create a post.');
+  console.log('🟡 Submitting post:', { title, content });
+
+  if (!isSignedIn) {
+    alert('You must be signed in to create a post.');
+    console.warn('⚠️ User not signed in, aborting.');
+    return;
+  }
+
+  try {
+    // 1. Get Clerk JWT
+    const token = await getToken();
+    console.log('🔑 Clerk token:', token);
+
+    // 2. Send POST with token
+    const res = await fetch('http://localhost:3000/api/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ title, content }),
+    });
+
+    console.log('🟢 Response status:', res.status);
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      console.error('❌ Post creation failed:', errorData);
+      alert(`Failed to create post: ${errorData.error?.message || res.statusText}`);
       return;
     }
 
-    try {
-      // Get Clerk JWT
-      const token = await getToken();
+    // 3. Parse and prepend new post
+    const newPost: Post = await res.json();
+    console.log('✅ Created new post:', newPost);
 
-      // Send POST with token (no authorId)
-      const res = await fetch('http://localhost:4000/api/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, 
-        },
-        body: JSON.stringify({ title, content }), 
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error('Post creation failed:', errorData);
-        alert(`Failed to create post: ${errorData.message || res.statusText}`);
-        return;
-      }
-
-      // Parse and prepend new post
-      const newPost: Post = await res.json();
-      setPosts(prev => [newPost, ...prev]);
-
-      // Clear inputs
-      setTitle('');
-      setContent('');
-
-    } catch (err) {
-      console.error('Error creating post:', err);
-      alert('Something went wrong. Please try again.');
-    }
-  };
+    setPosts(prev => [newPost, ...prev]);
+    setTitle('');
+    setContent('');
+  } catch (err) {
+    console.error('🔥 Error creating post:', err);
+    alert('Something went wrong. Please try again.');
+  }
+};
 
   useEffect(() => {
     fetchPosts();
@@ -165,6 +173,8 @@ function Forum() {
               )}
             </div>
           </section>
+
+          {/* Sidebar omitted for brevity */}
         </div>
       </main>
 

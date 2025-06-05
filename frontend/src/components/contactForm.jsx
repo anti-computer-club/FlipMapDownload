@@ -2,11 +2,9 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Card, Input, Button, TextArea } from 'pixel-retroui';
 
-//component for contact form using EmailJS
 function ContactForm() {
   const form = useRef();
 
-  // Initialize EmailJS with your user ID
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -28,7 +26,6 @@ function ContactForm() {
       );
   };
 
-  // Render the contact form
   return (
     <Card shadowColor="#9437ff" className="flex flex-col items-center w-full p-2">
       <form ref={form} onSubmit={sendEmail}>
